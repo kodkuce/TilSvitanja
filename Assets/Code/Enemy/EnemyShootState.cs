@@ -16,7 +16,7 @@ public class EnemyShootState : EnemyStates
         fireRate += -Time.deltaTime;
         if( fireRate < 0 )
         {
-            fireRate = 1;
+            fireRate = 2;
             Shoot();
         }
     }
@@ -24,5 +24,6 @@ public class EnemyShootState : EnemyStates
     void Shoot()
     {
         Debug.Log("SHOOT");
+        GameEvents.Instance.PlaySFX?.Invoke("npcRevolverShoot",0.8f);
     }
 }
