@@ -954,6 +954,14 @@ ModelImporter:
     2300154: WGT-rig_VIS_upper_arm_ik_pole.L
     2300156: WGT-rig_VIS_upper_arm_ik_pole.R
     2300158: WGTS_rig
+    2300160: Belt
+    2300162: Body
+    2300164: Eyebrows
+    2300166: Eyes
+    2300168: Hat
+    2300170: Mustache
+    2300172: Pants
+    2300174: Shirt
     3300000: Mirror
     3300002: WGT-rig_breast.L
     3300004: WGT-rig_breast.R
@@ -1034,6 +1042,14 @@ ModelImporter:
     3300154: WGT-rig_VIS_upper_arm_ik_pole.L
     3300156: WGT-rig_VIS_upper_arm_ik_pole.R
     3300158: WGTS_rig
+    3300160: Belt
+    3300162: Body
+    3300164: Eyebrows
+    3300166: Eyes
+    3300168: Hat
+    3300170: Mustache
+    3300172: Pants
+    3300174: Shirt
     4300000: WGTS_rig
     4300002: WGT-rig_root
     4300004: WGT-rig_spine_fk
@@ -1167,10 +1183,10 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
-    importVisibility: 1
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -1192,7 +1208,7 @@ ModelImporter:
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
-    blendShapeNormalImportMode: 1
+    blendShapeNormalImportMode: 2
     normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
@@ -1209,10 +1225,10 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
