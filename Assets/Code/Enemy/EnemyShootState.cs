@@ -23,8 +23,8 @@ public class EnemyShootState : EnemyStates
 
     void Shoot()
     {
-        Debug.Log("SHOOT");
         GameEvents.Instance.PlaySFX?.Invoke("npcRevolverShoot",0.8f);
         GameEvents.Instance.SpawnGameObject?.Invoke("npcRevolverShootParticle", enemyController.gunMuzzle.position, Quaternion.identity );
+        GameEvents.Instance.PlayerHit?.Invoke(1);
     }
 }

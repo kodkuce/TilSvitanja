@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpawnSystem : Singleton<SpawnSystem>
 {
     public GameObject npcRevolverShootParticle;
-
+    public GameObject bloodSplater;
 
 
 

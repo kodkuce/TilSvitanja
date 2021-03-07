@@ -1,11 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IEatDamage
 {
-
-    EnemyStates lastState;
     EnemyStates currentState;
 
     public Animator animator;
@@ -19,9 +18,7 @@ public class EnemyController : MonoBehaviour, IEatDamage
 
     public void SetState(EnemyStates ec)
     {
-        lastState = currentState;
         currentState = ec;
-        // Debug.Log( currentState );
     }
 
     public void DestorySelf()

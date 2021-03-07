@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,13 @@ public class AimController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameEvents.Instance.StartFight += OnStartFight;
+        gameObject.SetActive(false);
+    }
+
+    private void OnStartFight()
+    {
+        gameObject.SetActive(true);
     }
 
     // Update is called once per frame

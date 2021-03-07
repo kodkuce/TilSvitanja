@@ -8,9 +8,8 @@ public abstract class EnemyStates
     protected Animator animator;
 
     public virtual void VUpdate(){}
-    public virtual void VFixedUpdate(){}
     public virtual void ProcessDamage( int dmg )
     {
         enemyController.SetState( new EnemyDieState( enemyController ) );
-    } 
+    }
 }

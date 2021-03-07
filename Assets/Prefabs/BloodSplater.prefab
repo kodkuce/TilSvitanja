@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4755076227773515043}
   - component: {fileID: 4755076227773515040}
+  - component: {fileID: 1615922972}
   m_Layer: 0
   m_Name: BloodSplater
   m_TagString: Untagged
@@ -79,3 +80,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1615922972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755076227773515041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57453f6e3dd369deb229bfc21d3255a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodLooks:
+  - {fileID: 21300000, guid: dd93aadeabad815dfbdab47c53007de1, type: 3}
+  - {fileID: 21300000, guid: a2e1b7b9410955f20a0f637fa5f4b157, type: 3}
+  - {fileID: 21300000, guid: 80744394ac9e1bb1da32a372fc1b02e1, type: 3}
+  - {fileID: 21300000, guid: 1777b0446a44fa24a8c71a913186502f, type: 3}
+  - {fileID: 21300000, guid: c587e7254fe7db865bc259b0a96273d4, type: 3}
