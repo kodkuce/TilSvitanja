@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyShootState : EnemyStates
 {
-    float fireRate = 1f;
+    float fireRate = 0.6f;
     public EnemyShootState( EnemyController ec)
     {
         base.enemyController = ec;
@@ -25,5 +25,6 @@ public class EnemyShootState : EnemyStates
     {
         Debug.Log("SHOOT");
         GameEvents.Instance.PlaySFX?.Invoke("npcRevolverShoot",0.8f);
+        GameEvents.Instance.SpawnGameObject?.Invoke("npcRevolverShootParticle", enemyController.gunMuzzle.position, Quaternion.identity );
     }
 }

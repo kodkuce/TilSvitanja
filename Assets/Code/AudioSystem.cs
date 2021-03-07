@@ -5,13 +5,16 @@ using UnityEngine;
 public class AudioSystem : Singleton<AudioSystem>
 {
     public AudioClip npcRevolverShoot;
+    public List<AudioClip> revolverShoots;
+    public AudioClip outOfAmmo;
+    public AudioClip reloadAmmo;
 
     void Start()
     {
         GameEvents.Instance.PlaySFX += OnPlaySFX;
     }
 
-    void OnDestroy()
+    void  OnApplicationQuit()
     {
         GameEvents.Instance.PlaySFX -= OnPlaySFX;
     }
@@ -36,6 +39,10 @@ public class AudioSystem : Singleton<AudioSystem>
                     if( typeof(AudioSystem).GetField(what).GetValue(this) is IList )
                     {
                         List<AudioClip> audioClips = typeof(AudioSystem).GetField(what).GetValue(this) as List<AudioClip>;
+                        Debug.Log( audioClips );
+                        Debug.Log( audioClips.Count );
+
+
                         int r = UnityEngine.Random.Range(0,audioClips.Count);
                         audioClip = audioClips[r];
                     }else
