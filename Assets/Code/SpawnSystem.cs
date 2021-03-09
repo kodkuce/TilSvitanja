@@ -7,7 +7,9 @@ public class SpawnSystem : Singleton<SpawnSystem>
 {
     public GameObject npcEnemyThug;
     public GameObject npcEnemyCop;
+    public GameObject npcEnemyFam;
     public GameObject npcRevolverShootParticle;
+    public GameObject npcAxeSwingParticle;
     public GameObject bloodSplater;
 
 

@@ -8,8 +8,10 @@ public class EnemyShootState : EnemyStates
     public EnemyShootState( EnemyController ec)
     {
         base.enemyController = ec;
-        if( ec.gameObject.name.Contains( "Fam" ) ) { return; } //dirty fix
-        enemyController.animator.SetTrigger("shoot");
+        if( ec.aimPreAttack )
+        {
+            enemyController.animator.SetTrigger("shoot");
+        }
     }
 
     public override void VUpdate()
@@ -25,8 +27,8 @@ public class EnemyShootState : EnemyStates
     void Shoot()
     {
         enemyController.animator.SetTrigger("shoot");
-        GameEvents.Instance.PlaySFX?.Invoke("npcRevolverShoot",0.8f);
-        GameEvents.Instance.SpawnGameObject?.Invoke("npcRevolverShootParticle", enemyController.gunMuzzle.position, Quaternion.identity );
+        GameEvents.Instance.PlaySFX?.Invoke(enemyController.attackSound,0.8f);
+        GameEvents.Instance.SpawnGameObject?.Invoke(enemyController.attackEffect, enemyController.gunMuzzle.position, Quaternion.identity );
         GameEvents.Instance.PlayerHit?.Invoke(1);
     }
 }

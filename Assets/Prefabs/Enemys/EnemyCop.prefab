@@ -49,6 +49,9 @@ MonoBehaviour:
   animator: {fileID: 8426689623359683246}
   spriteRenderer: {fileID: 8426689623359683245}
   gunMuzzle: {fileID: 127319600222597405}
+  aimPreAttack: 1
+  attackSound: npcRevolverShoot
+  attackEffect: npcRevolverShootParticle
 --- !u!61 &4927070946095110796
 BoxCollider2D:
   m_ObjectHideFlags: 0

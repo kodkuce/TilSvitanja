@@ -19,13 +19,12 @@ public class AimController : MonoBehaviour
 
     private void OnPlayerShoot()
     {
-        // if( Physics.Raycast( transform.position, ))
-
         RaycastHit2D hit = Physics2D.Raycast( transform.position, Vector2.zero );
         if( hit.collider != null )
         {
-            Debug.Log("Hitted something: " + hit.collider.gameObject.name );
-            if (hit.collider.GetComponent<EnemyController>() is IEatDamage eatDamage ) { eatDamage.ReciveDamage(1); } 
+            // Debug.Log("Hitted something: " + hit.collider.gameObject.name );
+            hit.collider.GetComponent<IEatDamage>()?.ReciveDamage(1);
+
         }else{
             Debug.Log("Miss");
         }

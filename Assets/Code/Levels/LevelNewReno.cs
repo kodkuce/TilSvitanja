@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelVigvam : Level
+public class LevelNewReno : Level
 {
-
-    [Header("Dialog Settings")]
+     [Header("Dialog Settings")]
     public GameObject tasta;
     public GameObject teddy;
     Animator tanim;
@@ -22,7 +21,7 @@ public class LevelVigvam : Level
     public List<Transform> spawnPositions;
 
 
-     protected override void VStart()
+    protected override void VStart()
     {
         tanim = teddy.GetComponent<Animator>();
         GameEvents.Instance.DialogClose += OnDialogClose;
@@ -63,7 +62,6 @@ public class LevelVigvam : Level
 
 
         int spawncount = enemyCount;
-        Debug.Log( enemyCount );
         while( spawncount > 0 )
         {
             //pick a random place to spawn
@@ -76,7 +74,13 @@ public class LevelVigvam : Level
             }
 
             spawncount--;
-            GameEvents.Instance.SpawnGameObject( "npcEnemyFam" , rpos, Quaternion.identity );
+            if( spawncount == 0 )
+            {
+                GameEvents.Instance.SpawnGameObject( "npcEnemyThugBoss" , rpos, Quaternion.identity );
+            }else{
+                GameEvents.Instance.SpawnGameObject( "npcEnemyThug" , rpos, Quaternion.identity );
+            }
+
             yield return new WaitForSeconds( Random.Range(2f, 4f));
         }
 

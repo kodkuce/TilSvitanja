@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioSystem : Singleton<AudioSystem>
 {
     public AudioClip npcRevolverShoot;
+    public List<AudioClip> npcAxeSwing;
     public List<AudioClip> revolverShoots;
     public AudioClip outOfAmmo;
     public AudioClip reloadAmmo;

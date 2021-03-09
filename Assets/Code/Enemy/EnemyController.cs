@@ -10,6 +10,9 @@ public class EnemyController : MonoBehaviour, IEatDamage
     public Animator animator;
     public SpriteRenderer spriteRenderer;
     public Transform gunMuzzle;
+    public bool aimPreAttack;
+    public string attackSound;
+    public string attackEffect;
 
     public void ReciveDamage(int dmg)
     {
