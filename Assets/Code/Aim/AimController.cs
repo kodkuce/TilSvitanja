@@ -11,11 +11,11 @@ public class AimController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameEvents.Instance.StartFight += OnStartFight;
+        GameEvents.Instance.FightStart += OnFightStart;
         gameObject.SetActive(false);
     }
 
-    private void OnStartFight()
+    private void OnFightStart()
     {
         gameObject.SetActive(true);
     }

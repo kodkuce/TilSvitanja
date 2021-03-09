@@ -87,9 +87,4 @@ public class AmmoBar : MonoBehaviour
             GameEvents.Instance.PlaySFX?.Invoke("outOfAmmo",0.8f);
         }
     }
-
-    void OnApplicationQuit()
-    {
-
-    }
 }

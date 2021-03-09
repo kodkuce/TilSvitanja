@@ -1,21 +1,44 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+public abstract class Level : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject nextLevel;
+    public GameObject mainMenuLevel;
+
     void Start()
     {
-        
+        GameEvents.Instance.PlayerDied += OnPlayerDied;
+        VStart();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void VStart(){}
+    private void OnPlayerDied()
     {
-        if(Input.GetKeyUp(KeyCode.K))
-        {
-            GameEvents.Instance.DisplayTrasactionScreen("Act 2 - New Reno");
-        }
+        StopAllCoroutines();
+        GameEvents.Instance.DisplayTrasactionScreen("Game Ower");
+        Invoke("GoMainMenu", 2f );
     }
+
+    void GoMainMenu()
+    {
+        Instantiate( mainMenuLevel );
+        Destroy(gameObject);
+    }
+
+    protected void GoNextLevel()
+    {
+        GameEvents.Instance.DisplayTrasactionScreen(nextLevel.name);
+        Invoke( "DelayNextLevel", 2f );
+    }
+    void DelayNextLevel()
+    {
+        Instantiate( nextLevel );
+        Destroy( gameObject );
+    }
+    
+    
+
 }

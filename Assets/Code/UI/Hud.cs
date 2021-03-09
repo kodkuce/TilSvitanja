@@ -7,16 +7,16 @@ public class Hud : MonoBehaviour
 {
     void Start()
     {
-        GameEvents.Instance.GameEnd += OnGameEnd;
-        GameEvents.Instance.StartFight += OnStartFight;
+        GameEvents.Instance.FightEnd += OnFightEnd;
+        GameEvents.Instance.FightStart += OnFightStart;
     }
 
-    private void OnStartFight()
+    private void OnFightStart()
     {
         ShowHud();
     }
 
-    private void OnGameEnd(bool win)
+    private void OnFightEnd()
     {
         HideHud();
     }
