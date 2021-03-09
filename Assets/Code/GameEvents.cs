@@ -6,11 +6,14 @@ using UnityEngine;
 public class GameEvents : Singleton<GameEvents>
 {
     public Action<string, float> PlaySFX;
+
     public Action<string, Vector3, Quaternion> SpawnGameObject;
     public Action CleanUpSpawns;
+
     public Action FightStart;
     public Action FightEnd;
     public Action<int> PlayerHit;
+    public Action PlayerShoot;
     public Action PlayerDied;
     public Action EnemyDied;
 

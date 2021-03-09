@@ -5706,14 +5706,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4dc9d261f49ea09a0d171553c95609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: {fileID: 0}
+  nextLevel: {fileID: 3393526174989622454, guid: 74c56f150520a104685fd4fa44cd7755,
+    type: 3}
   mainMenuLevel: {fileID: 0}
   teddy: {fileID: 1775304912}
   wife: {fileID: 2120224310}
   zzz: {fileID: 848666890}
   dialogPart1:
   - profile: {fileID: 21300000, guid: 0a3331a91fe44cd16888c2c6d50da897, type: 3}
-    text: "Boobo wake up boobo.\n\x13\x13Stop sleeping i need to speak with you "
+    text: "Teddy. wake up Teddy.\n\x13\x13Stop sleeping, i need to speak with you."
   - profile: {fileID: 21300000, guid: 0a3331a91fe44cd16888c2c6d50da897, type: 3}
     text: Wake UPPP!
   dialogPart2:

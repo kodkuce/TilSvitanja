@@ -64,4 +64,9 @@ public class LevelIntro : Level
         }
     }
 
+    protected override void VOnDestory()
+    {
+        GameEvents.Instance.DialogClose -= OnDialogClose;
+    }
+
 }

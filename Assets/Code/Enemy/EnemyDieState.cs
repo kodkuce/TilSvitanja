@@ -16,7 +16,9 @@ public class EnemyDieState : EnemyStates
         spriteRenderer = enemyController.spriteRenderer;
         color = spriteRenderer.color;
 
-        animator.SetTrigger("die");
+
+        enemyController.animator.SetTrigger("die");
+        GameEvents.Instance.EnemyDied?.Invoke();
     }
 
     public override void ProcessDamage(int dmg)

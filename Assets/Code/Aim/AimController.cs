@@ -1,4 +1,4 @@
-﻿using System;
+﻿//using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,23 +7,45 @@ public class AimController : MonoBehaviour
 {
     public float speed = 1;
     public Transform innerCircle;
+    public GameObject aimRoot;
 
     // Start is called before the first frame update
     void Start()
     {
         GameEvents.Instance.FightStart += OnFightStart;
-        gameObject.SetActive(false);
+        GameEvents.Instance.FightEnd += OnFightEnd;
+        GameEvents.Instance.PlayerShoot += OnPlayerShoot;
+    }
+
+    private void OnPlayerShoot()
+    {
+        // if( Physics.Raycast( transform.position, ))
+
+        RaycastHit2D hit = Physics2D.Raycast( transform.position, Vector2.zero );
+        if( hit.collider != null )
+        {
+            Debug.Log("Hitted something: " + hit.collider.gameObject.name );
+            if (hit.collider.GetComponent<EnemyController>() is IEatDamage eatDamage ) { eatDamage.ReciveDamage(1); } 
+        }else{
+            Debug.Log("Miss");
+        }
+    }
+
+    private void OnFightEnd()
+    {
+        aimRoot.SetActive(false);
     }
 
     private void OnFightStart()
     {
-        gameObject.SetActive(true);
+        transform.position = new Vector3( Random.Range(-1.3f, 1.3f), Random.Range(-1.3f, 1.3f), -9 );
+        aimRoot.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
+        float x = -Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
 
         Vector3 nextPos = transform.position + new Vector3( x, y, 0) * Time.deltaTime * speed;

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelRoadToReno : Level
+public class LevelVigvam : Level
 {
+
     [Header("Dialog Settings")]
-    public GameObject copCinematic;
+    public GameObject tasta;
     public GameObject teddy;
     Animator tanim;
 
@@ -15,13 +16,13 @@ public class LevelRoadToReno : Level
 
     public List<DialogPart> dialogPart1;
     public List<DialogPart> dialogPart2;
-    public List<DialogPart> dialogPart3;
 
     [Header("Fight Settings")]
     public int enemyCount = 3;
     public List<Transform> spawnPositions;
 
-    protected override void VStart()
+
+     protected override void VStart()
     {
         tanim = teddy.GetComponent<Animator>();
         GameEvents.Instance.DialogClose += OnDialogClose;
@@ -50,16 +51,9 @@ public class LevelRoadToReno : Level
         yield return RunDialog();
 
         yield return new WaitForSeconds(0.1f);
-        tanim.SetTrigger("gunmirror");
-        currentDialog = dialogPart2;
-        yield return RunDialog();
-
-        yield return new WaitForSeconds(0.1f);
         teddy.GetComponent<FadeComponent>().FadeIn(2);
-        foreach( FadeComponent fc in copCinematic.GetComponentsInChildren<FadeComponent>() )
-        {
-            fc.FadeIn(2);
-        }
+        tasta.GetComponent<FadeComponent>().FadeIn(2);
+
 
         yield return new WaitForSeconds(0.1f);
         GameEvents.Instance.DisplayNotification?.Invoke("FIGHT STARTED");
@@ -90,7 +84,7 @@ public class LevelRoadToReno : Level
         yield return new WaitUntil( () => enemyCount <= 0 );
         GameEvents.Instance.FightEnd?.Invoke();
         yield return new WaitForSeconds( 1 );
-        currentDialog = dialogPart3;
+        currentDialog = dialogPart2;
         yield return RunDialog();
         GoNextLevel();
     }

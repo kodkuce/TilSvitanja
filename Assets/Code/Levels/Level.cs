@@ -19,13 +19,15 @@ public abstract class Level : MonoBehaviour
     {
         StopAllCoroutines();
         GameEvents.Instance.DisplayTrasactionScreen("Game Ower");
+        GameEvents.Instance.FightEnd?.Invoke();
         Invoke("GoMainMenu", 2f );
     }
 
     void GoMainMenu()
     {
-        Instantiate( mainMenuLevel );
         Destroy(gameObject);
+        GameEvents.Instance.CleanUpSpawns?.Invoke();
+        Instantiate( mainMenuLevel );
     }
 
     protected void GoNextLevel()
@@ -35,9 +37,18 @@ public abstract class Level : MonoBehaviour
     }
     void DelayNextLevel()
     {
-        Instantiate( nextLevel );
         Destroy( gameObject );
+        GameEvents.Instance.CleanUpSpawns?.Invoke();
+        Instantiate( nextLevel );
     }
+
+    void OnDestroy()
+    {
+        GameEvents.Instance.PlayerDied -= OnPlayerDied;
+        VOnDestory();
+    }
+
+    protected virtual void VOnDestory(){}
     
     
 

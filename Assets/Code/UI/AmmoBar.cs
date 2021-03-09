@@ -25,15 +25,13 @@ public class AmmoBar : MonoBehaviour
     void Update()
     {
         //Testing atm TODO DEL
-        if( Input.GetMouseButtonUp(0) )
+        if( Input.GetButtonDown("Use") )
         {
-            Debug.Log("Try bang");
             PullTrigger();
         }
 
-        if( Input.GetMouseButtonUp(1) )
+        if( Input.GetButtonDown("Reload") )
         {
-            Debug.Log("Try reload");
             Reload();
         }
 
@@ -79,6 +77,7 @@ public class AmmoBar : MonoBehaviour
         {
             //Fire bullet
             GameEvents.Instance.PlaySFX?.Invoke("revolverShoots",0.8f);
+            GameEvents.Instance.PlayerShoot?.Invoke();
 
             currentAmmo--;
             if( currentAmmo == 0) { blinkReload = true; }

@@ -36,9 +36,9 @@ public class SpawnSystem : Singleton<SpawnSystem>
     private void OnCleanUpSpawns()
     {
         int childs = junkRoot.transform.childCount;
-        for( int i = childs-1; i>0; i-- )
+        for( int i = childs-1; i>=0; i-- )
         {
-            Destroy( junkRoot.transform.GetChild(i) );
+            Destroy( junkRoot.transform.GetChild(i).gameObject );
         }
     }
 
@@ -52,6 +52,7 @@ public class SpawnSystem : Singleton<SpawnSystem>
         }
         else
         {
+            // Debug.Log("Should spawn "+ what );
             GameObject spawnMe = null;
 
             //If have multiple gameobjects for same, pick random form list
