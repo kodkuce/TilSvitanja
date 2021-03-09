@@ -9,6 +9,10 @@ public abstract class EnemyStates
     public virtual void VUpdate(){}
     public virtual void ProcessDamage( int dmg )
     {
-        enemyController.SetState( new EnemyDieState( enemyController ) );
+        enemyController.hp += -dmg;
+        if( enemyController.hp <= 0)
+        {
+            enemyController.SetState( new EnemyDieState( enemyController ) );
+        }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, IEatDamage
 {
     EnemyStates currentState;
-
+    public int hp = 1;
     public Animator animator;
     public SpriteRenderer spriteRenderer;
     public Transform gunMuzzle;

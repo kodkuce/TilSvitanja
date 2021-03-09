@@ -5,8 +5,9 @@ using UnityEngine;
 public class LevelNewReno : Level
 {
      [Header("Dialog Settings")]
-    public GameObject tasta;
+    public GameObject oldman;
     public GameObject teddy;
+    public GameObject thugRoot;
     Animator tanim;
 
 
@@ -51,7 +52,11 @@ public class LevelNewReno : Level
 
         yield return new WaitForSeconds(0.1f);
         teddy.GetComponent<FadeComponent>().FadeIn(2);
-        tasta.GetComponent<FadeComponent>().FadeIn(2);
+        oldman.GetComponent<FadeComponent>().FadeIn(2);
+        foreach( FadeComponent fc in thugRoot.GetComponentsInChildren<FadeComponent>() )
+        {
+            fc.FadeIn(2);
+        }
 
 
         yield return new WaitForSeconds(0.1f);
@@ -76,9 +81,9 @@ public class LevelNewReno : Level
             spawncount--;
             if( spawncount == 0 )
             {
-                GameEvents.Instance.SpawnGameObject( "npcEnemyThugBoss" , rpos, Quaternion.identity );
+                GameEvents.Instance.SpawnGameObject( "npcEnemyThugBoss" , new Vector3( 0, -0.73f, 0 ), Quaternion.identity );
             }else{
-                GameEvents.Instance.SpawnGameObject( "npcEnemyThug" , rpos, Quaternion.identity );
+                GameEvents.Instance.SpawnGameObject( "npcEnemyThug" , rpos , Quaternion.identity );
             }
 
             yield return new WaitForSeconds( Random.Range(2f, 4f));
@@ -88,6 +93,11 @@ public class LevelNewReno : Level
         yield return new WaitUntil( () => enemyCount <= 0 );
         GameEvents.Instance.FightEnd?.Invoke();
         yield return new WaitForSeconds( 1 );
+        teddy.GetComponent<FadeComponent>().FadeOut(2);
+        oldman.GetComponent<FadeComponent>().FadeOut(2);
+        yield return new WaitForSeconds( 1 );
+
+
         currentDialog = dialogPart2;
         yield return RunDialog();
         GoNextLevel();

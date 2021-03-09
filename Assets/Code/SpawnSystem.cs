@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SpawnSystem : Singleton<SpawnSystem>
 {
+    public GameObject npcEnemyThugBoss;
     public GameObject npcEnemyThug;
     public GameObject npcEnemyCop;
     public GameObject npcEnemyFam;
