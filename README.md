@@ -21,7 +21,7 @@ reflect light in the enemy. Hopefully this will work out right :)
 Ditching vamp theme game :( no good vamp art found.
 Ended up with simpler shooter in wild gunman style with a story with two ends.
 
-**WASD-aim ( A and D switched dont skip storry), R-reload, E-shoot**
+**WASD-aim ( A and D switched don't skip story ), R-reload, E-shoot**
 if newb testers find gameplay too hard they can rebind inputs xD
 
 Good night
