@@ -21,9 +21,11 @@ public class LevelEndOfGame : Level
     public List<DialogPart> goodDialog;
     List<DialogPart> currentDialog;
     bool nextDpart;
+    bool canExit;
 
     protected override void VStart()
     {
+        canExit = false;
         tanim = teddy.GetComponent<Animator>();
         GameEvents.Instance.DialogClose += OnDialogClose;
         StartCoroutine( "ProcessLevel" );
@@ -78,6 +80,25 @@ public class LevelEndOfGame : Level
             cryForewer.SetActive(true);
             blackFade.FadeIn(2);
         }
+
+        yield return new WaitForSeconds(5);
+        canExit = true;
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            canExit = false;
+            GameEvents.Instance.DisplayTrasactionScreen("");
+            Invoke("GoMainMenu", 2f );
+        }
+    }
+
+    void GoMainMenu()
+    {
+        Destroy(gameObject);
+        Instantiate( mainMenuLevel );
     }
 
     IEnumerator RunDialog( )
