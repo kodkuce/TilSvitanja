@@ -8,6 +8,7 @@ public class AimController : MonoBehaviour
     public float speed = 1;
     public Transform innerCircle;
     public GameObject aimRoot;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class AimController : MonoBehaviour
 
     private void OnPlayerShoot()
     {
+        anim.SetTrigger("shoot");
         RaycastHit2D hit = Physics2D.Raycast( transform.position, Vector2.zero );
         if( hit.collider != null )
         {

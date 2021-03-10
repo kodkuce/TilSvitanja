@@ -1,19 +1,24 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelIntro : Level
+public class LevelEndOfGame : Level
 {
+
     public GameObject teddy;
     Animator tanim;
     public GameObject wife;
-    public GameObject zzz;
+    public GameObject loveParticle;
+    public GameObject snowMassacre;
+    public GameObject cryForewer;
+    public FadeComponent blackFade;
 
 
     public List<DialogPart> dialogPart1;
     public List<DialogPart> dialogPart2;
     public List<DialogPart> dialogPart3;
+    public List<DialogPart> badDialog;
+    public List<DialogPart> goodDialog;
     List<DialogPart> currentDialog;
     bool nextDpart;
 
@@ -32,29 +37,47 @@ public class LevelIntro : Level
 
     IEnumerator ProcessLevel()
     {
-        tanim.SetTrigger("sleep");
+        tanim.SetTrigger("walk");
 
         //Game diffrent endings
-        PlayerPrefs.SetInt("goodend",0);
+        bool goodend = false;//PlayerPrefs.GetInt("goodend",0) == 0 ? true : false;
 
         yield return new WaitForSeconds(3f);
         currentDialog = dialogPart1;
         yield return RunDialog();
 
-        yield return new WaitForSeconds(0.1f);
-        zzz.SetActive(false);
-        tanim.SetTrigger("idle");
-        yield return new WaitForSeconds(0.2f);
-
+        wife.GetComponent<FadeComponent>().FadeOut(2);
         currentDialog = dialogPart2;
         yield return RunDialog();
+        tanim.SetTrigger("idle");
 
-        tanim.SetTrigger("givemirror");
         currentDialog = dialogPart3;
         yield return RunDialog();
+        tanim.SetTrigger("back");
 
-        GoNextLevel();
-        Debug.Log("Finished"); 
+        if( goodend )
+        {
+            currentDialog = goodDialog;
+            yield return RunDialog();
+            wife.transform.position = new Vector3( 0.43f, -0.47f, -0.45f );
+            loveParticle.SetActive(true);
+            yield return new WaitForSeconds(5);
+            blackFade.FadeOut(2);
+            yield return new WaitForSeconds(3);
+            snowMassacre.SetActive(true);
+            blackFade.FadeIn(2);
+            
+
+        }else{
+            currentDialog = badDialog;
+            yield return RunDialog();
+            tanim.SetTrigger("hurt");
+            yield return new WaitForSeconds(2);
+            blackFade.FadeOut(2);
+            yield return new WaitForSeconds(3);
+            cryForewer.SetActive(true);
+            blackFade.FadeIn(2);
+        }
     }
 
     IEnumerator RunDialog( )
@@ -71,5 +94,4 @@ public class LevelIntro : Level
     {
         GameEvents.Instance.DialogClose -= OnDialogClose;
     }
-
 }
