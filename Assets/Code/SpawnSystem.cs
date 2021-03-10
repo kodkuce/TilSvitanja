@@ -11,8 +11,9 @@ public class SpawnSystem : Singleton<SpawnSystem>
     public GameObject npcEnemyFam;
     public GameObject npcRevolverShootParticle;
     public GameObject npcAxeSwingParticle;
+    public GameObject npcBloodParticle;
     public GameObject bloodSplater;
-
+    public GameObject powerupBOOMEffect;
 
 
 
@@ -46,7 +47,7 @@ public class SpawnSystem : Singleton<SpawnSystem>
     }
 
 
-    //TODO for stuff that spawns all time add pool
+    //TODO for stuff that spawns a lot implement some pool if have time
     private void OnSpawnGameObject(string what, Vector3 pos, Quaternion rot)
     {
         if (typeof(SpawnSystem).GetField(what) == null)

@@ -14,9 +14,9 @@ public class EnemyController : MonoBehaviour, IEatDamage
     public string attackSound;
     public string attackEffect;
 
-    public void ReciveDamage(int dmg)
+    public void ReciveDamage(int dmg, Vector3 at)
     {
-        currentState.ProcessDamage(dmg);
+        currentState.ProcessDamage(dmg, at);
     }
 
     public void SetState(EnemyStates ec)

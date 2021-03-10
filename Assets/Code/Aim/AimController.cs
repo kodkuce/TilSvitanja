@@ -25,7 +25,7 @@ public class AimController : MonoBehaviour
         if( hit.collider != null )
         {
             // Debug.Log("Hitted something: " + hit.collider.gameObject.name );
-            hit.collider.GetComponent<IEatDamage>()?.ReciveDamage(1);
+            hit.collider.GetComponent<IEatDamage>()?.ReciveDamage(1, hit.point );
 
         }else{
             Debug.Log("Miss");

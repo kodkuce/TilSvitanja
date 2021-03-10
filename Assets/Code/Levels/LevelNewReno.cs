@@ -65,7 +65,7 @@ public class LevelNewReno : Level
         GameEvents.Instance.FightStart?.Invoke();
         yield return new WaitForSeconds(0.75f);
 
-
+        float spawndelay = 2f;
         int spawncount = enemyCount;
         while( spawncount > 0 )
         {
@@ -86,7 +86,10 @@ public class LevelNewReno : Level
                 GameEvents.Instance.SpawnGameObject( "npcEnemyThug" , rpos , Quaternion.identity );
             }
 
-            yield return new WaitForSeconds( Random.Range(2f, 4f));
+            yield return new WaitForSeconds( Random.Range(spawndelay, spawndelay*2));
+            if( spawncount == 18 ) { spawndelay = 1.75f;} //dirty hardness buff
+            if( spawncount == 12 ) { spawndelay = 1.5f;} 
+            if( spawncount == 6 ) { spawndelay = 1f;}
         }
 
 

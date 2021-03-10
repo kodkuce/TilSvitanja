@@ -13,6 +13,13 @@ public class HpBar : MonoBehaviour
     void Start()
     {
         GameEvents.Instance.PlayerHit += OnPlayerHit;
+        GameEvents.Instance.PowerupHP += OnPowerupHP;
+    }
+
+    private void OnPowerupHP()
+    {
+        hp = 10;
+        hpfill.fillAmount = 1;
     }
 
     void OnApplicationQuit()

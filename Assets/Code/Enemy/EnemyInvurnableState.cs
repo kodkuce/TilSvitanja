@@ -34,7 +34,7 @@ public class EnemyInvurnableState : EnemyStates
     {
         ColorBlackToWhite();
     }
-    public override void ProcessDamage(int dmg)
+    public override void ProcessDamage(int dmg, Vector3 at)
     {
         return; //just return cuz invurnable
     }

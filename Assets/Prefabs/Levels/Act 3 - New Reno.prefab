@@ -601,7 +601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272d266013a2ce16c983680f35eca83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: {fileID: 0}
+  nextLevel: {fileID: 7932311710142671187, guid: 8d4145bf3892e168e8a09094a3553dba,
+    type: 3}
   mainMenuLevel: {fileID: 5633713671625053340, guid: 9bb285f331fe3f517b26fb9233a8b823,
     type: 3}
   oldman: {fileID: 4189815262958881117}
@@ -628,17 +629,14 @@ MonoBehaviour:
 
       You saved New Reno!'
   - profile: {fileID: 21300000, guid: 24414c53e18cc96c684aea9452b73169, type: 3}
-    text: 'Anyway my Wife frogot
-
-      her mirror  in your bank.'
+    text: "Np, anyway, my wife told me that\nshe forgot her mirror in your bank.\x13\x13"
   - profile: {fileID: 21300000, guid: 24414c53e18cc96c684aea9452b73169, type: 3}
     text: Did you maybe found it?
   - profile: {fileID: 21300000, guid: ff2670a78881b854782c9ed4f9bfec26, type: 3}
-    text: "\x1A\x1A\x1AThat ugly mirror.\nSorry but trowed it in trash."
+    text: "Sorry, no lost and found department,\ncleaners just trow found stuff in
+      trash\x13."
   - profile: {fileID: 21300000, guid: ff2670a78881b854782c9ed4f9bfec26, type: 3}
-    text: 'No use dumpster diving,
-
-      garbage man took it long ago.'
+    text: "You can try dumpster diving, but\ni think garbage man took trash long ago.\x13"
   - profile: {fileID: 21300000, guid: 24414c53e18cc96c684aea9452b73169, type: 3}
     text: 'No way i am doing that quest.
 
@@ -1089,7 +1087,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4189815261845498831}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.75, y: -1.18, z: 0}
+  m_LocalPosition: {x: 2.75, y: -1.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7692313466701705215}

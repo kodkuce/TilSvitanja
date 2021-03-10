@@ -7,7 +7,7 @@ public class EnemyShootState : EnemyStates
     float fireRate = 0.6f;
     public EnemyShootState( EnemyController ec)
     {
-        base.enemyController = ec;
+        enemyController = ec;
         if( ec.aimPreAttack )
         {
             enemyController.animator.SetTrigger("shoot");

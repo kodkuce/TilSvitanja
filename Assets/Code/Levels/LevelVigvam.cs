@@ -61,7 +61,7 @@ public class LevelVigvam : Level
         GameEvents.Instance.FightStart?.Invoke();
         yield return new WaitForSeconds(0.75f);
 
-
+        float spawndelay = 2f;
         int spawncount = enemyCount;
         Debug.Log( enemyCount );
         while( spawncount > 0 )
@@ -77,7 +77,8 @@ public class LevelVigvam : Level
 
             spawncount--;
             GameEvents.Instance.SpawnGameObject( "npcEnemyFam" , rpos, Quaternion.identity );
-            yield return new WaitForSeconds( Random.Range(2f, 4f));
+            yield return new WaitForSeconds( Random.Range(spawndelay, spawndelay*2));
+            if( spawncount == 5 ) { spawndelay = 1.6f; }
         }
 
 

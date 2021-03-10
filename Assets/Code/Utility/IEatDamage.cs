@@ -4,5 +4,5 @@ using UnityEngine;
 
 interface IEatDamage
 {
-    void ReciveDamage( int dmg );
+    void ReciveDamage( int dmg, Vector3 at);
 }

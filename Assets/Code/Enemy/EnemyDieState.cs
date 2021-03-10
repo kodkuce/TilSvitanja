@@ -21,7 +21,7 @@ public class EnemyDieState : EnemyStates
         GameEvents.Instance.EnemyDied?.Invoke();
     }
 
-    public override void ProcessDamage(int dmg)
+    public override void ProcessDamage(int dmg, Vector3 at)
     {
         return; //ignore dmg cuz dead allready
     }

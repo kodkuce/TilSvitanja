@@ -22,4 +22,8 @@ public class GameEvents : Singleton<GameEvents>
     public Action DialogClose;
     public Action<string> DisplayTrasactionScreen;
     public Action<string> DisplayNotification;
+
+    //powerups
+    public Action PowerupHP;
+    public Action PowerupBOOM;
 }

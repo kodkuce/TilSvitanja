@@ -18,6 +18,7 @@ public class AmmoBar : MonoBehaviour
     void OnEnable()
     {
         currentAmmo = 5;
+        blinkReload = false;
         UpdateAmmoUI();
     }
 

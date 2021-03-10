@@ -40,7 +40,7 @@ public class LevelEndOfGame : Level
         tanim.SetTrigger("walk");
 
         //Game diffrent endings
-        bool goodend = false;//PlayerPrefs.GetInt("goodend",0) == 0 ? true : false;
+        bool goodend = PlayerPrefs.GetInt("goodend",0) == 0 ? true : false;
 
         yield return new WaitForSeconds(3f);
         currentDialog = dialogPart1;
